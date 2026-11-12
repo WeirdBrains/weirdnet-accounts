@@ -1,0 +1,26 @@
+[package]
+name = "weirdnet-accounts"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.99"
+description = "Weirdnet accounts: Argon2id passwords, hashed session and email tokens, user-name and email rules, per-client rate limits with trusted proxies, and org-scoped API keys with scopes, expiry and revocation (extracted from TAUR)."
+authors = ["Michael Christenson II <m3talsmith@gmail.com>"]
+license = "BSD-3-Clause"
+repository = "https://github.com/WeirdBrains/weirdnet-accounts"
+documentation = "https://docs.rs/weirdnet-accounts"
+readme = "README.md"
+keywords = ["accounts", "argon2", "api-keys", "rate-limit", "weirdnet"]
+categories = ["authentication"]
+include = ["src/**", "README.md", "SECURITY.md", "CHANGELOG.md", "LICENSE"]
+
+[dependencies]
+thiserror = "2"
+serde = { version = "1", features = ["derive"] }
+argon2 = "0.5"
+rand_core = { version = "0.6", features = ["getrandom"] }
+sha2 = "0.10"
+subtle = "2"
+ipnet = "2"
+
+[dev-dependencies]
+serde_json = "1"
