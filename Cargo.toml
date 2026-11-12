@@ -1,6 +1,6 @@
 [package]
 name = "weirdnet-accounts"
-version = "0.0.0"
+version = "0.1.0"
 edition = "2024"
 rust-version = "1.99"
 description = "Weirdnet accounts: Argon2id passwords, hashed session and email tokens, user-name and email rules, per-client rate limits with trusted proxies, and org-scoped API keys with scopes, expiry and revocation (extracted from TAUR)."
