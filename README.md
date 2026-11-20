@@ -1,6 +1,6 @@
 # weirdnet-accounts
 
-Account building blocks for WeirdBrains services, extracted from TAUR and shared with Salty
+Account building blocks for [WeirdBrains](https://weirdbrains.com) services, extracted from TAUR and shared with Salty
 Gull. Storage stays with the application; this crate holds the rules and the cryptography
 and never opens a database.
 
