@@ -21,6 +21,8 @@ sqlite = ["dep:weirdnet-storage", "dep:serde_json"]
 vendored-openssl = ["sqlite", "weirdnet-storage/vendored-openssl"]
 # `net`: signed weirdnet-net memberships and revocations, and callers from node certs.
 net = ["dep:weirdnet-net", "dep:serde_json"]
+# `ServiceAuth`: a weirdnet-service `Authorize` hook over the accounts store.
+service = ["net", "dep:weirdnet-service"]
 
 [dependencies]
 thiserror = "2"
@@ -34,6 +36,7 @@ weirdnet-access = "0.1.2"
 weirdnet-storage = { version = "0.1.1", default-features = false, optional = true }
 serde_json = { version = "1", optional = true }
 weirdnet-net = { version = "0.8.2", optional = true }
+weirdnet-service = { version = "0.1.0", default-features = false, features = ["net"], optional = true }
 
 [dev-dependencies]
 serde_json = "1"

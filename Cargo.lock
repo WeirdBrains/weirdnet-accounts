@@ -3255,6 +3255,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "serde_bytes"
+version = "0.11.19"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a5d440709e79d88e51ac01c4b72fc6cb7314017bb7da9eeff678aa94c10e3ea8"
+dependencies = [
+ "serde",
+ "serde_core",
+]
+
+[[package]]
 name = "serde_core"
 version = "1.0.229"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4076,6 +4086,7 @@ dependencies = [
  "thiserror 2.0.21",
  "weirdnet-access",
  "weirdnet-net",
+ "weirdnet-service",
  "weirdnet-storage",
 ]
 
@@ -4133,6 +4144,22 @@ dependencies = [
  "uuid",
  "weirdnet-keys",
  "zeroize",
+]
+
+[[package]]
+name = "weirdnet-service"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5b09fccda800db6b73155aa424d19a4e5f80232ce489172b8f01ca917baa7be0"
+dependencies = [
+ "async-trait",
+ "cbor4ii",
+ "futures",
+ "serde",
+ "serde_bytes",
+ "thiserror 2.0.21",
+ "tokio",
+ "weirdnet-net",
 ]
 
 [[package]]

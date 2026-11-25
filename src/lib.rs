@@ -20,6 +20,7 @@
 //! - [`store`]: the [`Store`](store::Store) interface and an in-memory store.
 //! - `sqlite` (feature `sqlite`): `SqliteStore`, a SQLCipher database of its own.
 //! - `net` (feature `net`): signed weirdnet-net memberships and revocations.
+//! - `service` (feature `service`): `ServiceAuth`, a weirdnet-service `Authorize` hook.
 #![forbid(unsafe_code)]
 #![warn(missing_docs)]
 #![cfg_attr(docsrs, feature(doc_cfg))]
@@ -35,6 +36,8 @@ pub mod names;
 pub mod net;
 pub mod password;
 pub mod ratelimit;
+#[cfg(feature = "service")]
+pub mod service;
 #[cfg(feature = "sqlite")]
 pub mod sqlite;
 pub mod store;

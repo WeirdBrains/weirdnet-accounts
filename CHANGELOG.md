@@ -17,6 +17,8 @@
   versioned migrations and encrypted snapshots. `vendored-openssl` builds OpenSSL from source.
 - `net` feature: owner-signed weirdnet-net memberships and revocations, and callers from node
   certs or presented memberships.
+- `service` feature: `ServiceAuth`, a weirdnet-service `Authorize` hook over `Authorizer`
+  (account plus identity to a role from the store, presented memberships included).
 - The 0.1 primitives and their `Error` are unchanged.
 
 ## [0.1.1] - 2026-11-21

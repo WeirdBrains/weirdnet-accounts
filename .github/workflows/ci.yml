@@ -19,6 +19,7 @@ jobs:
       - run: cargo test --locked --no-default-features
       - run: cargo clippy --locked --all-targets --features sqlite -- -D warnings
       - run: cargo clippy --locked --all-targets --features net -- -D warnings
+      - run: cargo clippy --locked --all-targets --features service -- -D warnings
       - run: cargo clippy --locked --all-targets --all-features -- -D warnings
       - run: cargo test --locked --all-features
       - run: RUSTDOCFLAGS='-D warnings' cargo doc --locked --no-deps --all-features

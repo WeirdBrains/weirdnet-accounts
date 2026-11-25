@@ -49,6 +49,7 @@ accounts model where one server hosts many accounts, each with many identities h
 |---|---|---|
 | `sqlite` | `SqliteStore`: the accounts store in its own SQLCipher database, with versioned migrations and encrypted snapshots | [weirdnet-storage](https://crates.io/crates/weirdnet-storage) |
 | `vendored-openssl` | `sqlite`, building SQLCipher's OpenSSL from source | |
+| `service` | `ServiceAuth`: a [weirdnet-service](https://crates.io/crates/weirdnet-service) `Authorize` hook that checks the caller's card, maps the resource to an account and lets `Authorizer` resolve the role from the store | weirdnet-service, weirdnet-net |
 | `net` | owner-signed memberships and revocations (`Membership::issue`, `MemberRevocation`), `check_presented` callers and callers from node certs | [weirdnet-net](https://crates.io/crates/weirdnet-net) |
 
 No feature is on by default, so the primitives build with no database or network stack.
