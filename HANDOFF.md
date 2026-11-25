@@ -2,6 +2,27 @@
 
 Running notes for [weirdnet-accounts](https://github.com/WeirdBrains/weirdnet-accounts), newest first.
 
+## 2026-11-25: accounts model for 0.2.0
+
+- What changed: a multi-tenant accounts model beside the unchanged 0.1 primitives: accounts with
+  owners, statuses and weirdnet-access role sets; members, invitations, revocations and API-key
+  bindings; `authz::Authorizer` (identity, status, recorded or owner-signed membership, then
+  `enforce::decide`); `directory::Accounts` with the rank rules; the `Store` interface with
+  `MemoryStore`; the `sqlite` feature (`SqliteStore` on weirdnet-storage, own database,
+  versioned migrations, snapshots); the `net` feature (signed memberships and revocations from
+  [weirdnet-net](https://crates.io/crates/weirdnet-net)). CI adds per-feature clippy and a
+  macOS and Windows test job.
+- Commits: see `git log` for this entry's push (accounts model, docs and CI).
+- Checks: cargo fmt; clippy with `-D warnings` for default, `sqlite`, `net` and all features;
+  tests for default, no default and all features (33 with all features); rustdoc with
+  `-D warnings`; `weirdnet_release.py validate`. TAUR's core crate builds and passes its tests
+  against this tree with only its requirement changed to `"0.2"`.
+- Not tested: macOS and Windows until CI runs them; a real multi-node presented-membership
+  exchange over streams (the `net` test signs and checks in process); concurrent writers on one
+  `SqliteStore` beyond its internal lock.
+- Left: release 0.2.0.
+- Next: services and the vault can call `Authorizer` (closures adapt it to their hooks).
+
 ## 2026-11-21: v0.1.1, public-content patch release
 
 - What changed: v0.1.1 republishes the 0.1 line with the public-content rules applied (Weird Brains LLC as the copyright holder, m3talsmith as the author, no machine details), on top of `7fe79d4`. No code or API changes.
