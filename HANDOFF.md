@@ -2,6 +2,19 @@
 
 Running notes for [weirdnet-accounts](https://github.com/WeirdBrains/weirdnet-accounts), newest first.
 
+## 2026-11-25: v0.2.0 release
+
+- What changed: releases the accounts model as 0.2.0 (minor bump: new API; the 0.1 primitives
+  are unchanged). Published to [crates.io](https://crates.io/crates/weirdnet-accounts) and tagged
+  [v0.2.0](https://github.com/WeirdBrains/weirdnet-accounts/releases/tag/v0.2.0).
+- Commits: `6b57039` (accounts model), `41eb6d6` (docs, CI), `dd92804` (`service` feature),
+  then this entry and the `release: v0.2.0` commit.
+- Checks: CI passed on `dd92804` (Linux checks, macOS and Windows tests with all features); the
+  release script reran fmt, clippy, tests and rustdoc before tagging.
+- Not tested: as in the entry below.
+- Left: nothing for this release.
+- Next: docs.rs builds the [0.2.0 docs](https://docs.rs/weirdnet-accounts/0.2.0) from the upload.
+
 ## 2026-11-25: weirdnet-service hook
 
 - What changed: a `service` feature with `ServiceAuth`, an implementation of
