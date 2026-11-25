@@ -3,15 +3,24 @@ name = "weirdnet-accounts"
 version = "0.1.1"
 edition = "2024"
 rust-version = "1.99"
-description = "Weirdnet accounts: Argon2id passwords, hashed session and email tokens, user-name and email rules, per-client rate limits with trusted proxies, and org-scoped API keys with scopes, expiry and revocation (extracted from TAUR)."
+description = "Weirdnet accounts: Argon2id passwords, hashed tokens, name rules, rate limits and org-scoped API keys, plus multi-tenant accounts with weirdnet-access roles, invitations, revocations and one authorization hook, over a storage trait with an optional SQLCipher store."
 authors = ["Weird Brains LLC"]
 license = "BSD-3-Clause"
 repository = "https://github.com/WeirdBrains/weirdnet-accounts"
 documentation = "https://docs.rs/weirdnet-accounts"
 readme = "README.md"
-keywords = ["accounts", "argon2", "api-keys", "rate-limit", "weirdnet"]
+keywords = ["accounts", "argon2", "api-keys", "authorization", "weirdnet"]
 categories = ["authentication"]
 include = ["src/**", "README.md", "SECURITY.md", "CHANGELOG.md", "LICENSE"]
+
+[features]
+default = []
+# `SqliteStore`: the accounts store in its own SQLCipher database (weirdnet-storage).
+sqlite = ["dep:weirdnet-storage", "dep:serde_json"]
+# Build SQLCipher's OpenSSL from source (no system OpenSSL needed).
+vendored-openssl = ["sqlite", "weirdnet-storage/vendored-openssl"]
+# `net`: signed weirdnet-net memberships and revocations, and callers from node certs.
+net = ["dep:weirdnet-net", "dep:serde_json"]
 
 [dependencies]
 thiserror = "2"
@@ -21,6 +30,14 @@ rand_core = { version = "0.6", features = ["getrandom"] }
 sha2 = "0.10"
 subtle = "2"
 ipnet = "2"
+weirdnet-access = "0.1.2"
+weirdnet-storage = { version = "0.1.1", default-features = false, optional = true }
+serde_json = { version = "1", optional = true }
+weirdnet-net = { version = "0.8.2", optional = true }
 
 [dev-dependencies]
 serde_json = "1"
+tempfile = "3"
+
+[package.metadata.docs.rs]
+all-features = true
