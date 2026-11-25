@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-25
+
 ### Added
 
 - Multi-tenant accounts model: accounts (tenants) with owners, statuses and their own
